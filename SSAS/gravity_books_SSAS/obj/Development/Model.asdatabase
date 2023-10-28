@@ -1,0 +1,622 @@
+{
+  "name": "gravity_books_SSAS",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "SqlServer DESKTOP-P15MACISQLEXPRESS01 gravity_books_dwh",
+        "connectionString": "Provider=SQLNCLI11;Data Source=DESKTOP-P15MACI\\SQLEXPRESS01;Initial Catalog=gravity_books_dwh;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "DESKTOP-P15MACI\\ELnoor",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "book_author",
+        "columns": [
+          {
+            "name": "author_id",
+            "dataType": "int64",
+            "sourceColumn": "author_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "book_id",
+            "dataType": "int64",
+            "sourceColumn": "book_id",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "book_author",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[book_author].*   FROM [dbo].[book_author] ",
+              "dataSource": "SqlServer DESKTOP-P15MACISQLEXPRESS01 gravity_books_dwh"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[book_author].*   FROM [dbo].[book_author] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "book_author"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "book_publisher",
+        "columns": [
+          {
+            "name": "publisher_id",
+            "dataType": "int64",
+            "sourceColumn": "publisher_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "publisher_name",
+            "dataType": "string",
+            "sourceColumn": "publisher_name",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "book_publisher",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[book_publisher].*   FROM [dbo].[book_publisher] ",
+              "dataSource": "SqlServer DESKTOP-P15MACISQLEXPRESS01 gravity_books_dwh"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[book_publisher].*   FROM [dbo].[book_publisher] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "book_publisher"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "dim_address",
+        "columns": [
+          {
+            "name": "address_id",
+            "dataType": "int64",
+            "sourceColumn": "address_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "city",
+            "dataType": "string",
+            "sourceColumn": "city",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "country",
+            "dataType": "string",
+            "sourceColumn": "country",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_address",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[dim_address].*   FROM [dbo].[dim_address] ",
+              "dataSource": "SqlServer DESKTOP-P15MACISQLEXPRESS01 gravity_books_dwh"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[dim_address].*   FROM [dbo].[dim_address] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "dim_address"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "dim_author",
+        "columns": [
+          {
+            "name": "author_id",
+            "dataType": "int64",
+            "sourceColumn": "author_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "author_name",
+            "dataType": "string",
+            "sourceColumn": "author_name",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_author",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[dim_author].*   FROM [dbo].[dim_author] ",
+              "dataSource": "SqlServer DESKTOP-P15MACISQLEXPRESS01 gravity_books_dwh"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[dim_author].*   FROM [dbo].[dim_author] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "dim_author"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "dim_book",
+        "columns": [
+          {
+            "name": "book_id",
+            "dataType": "int64",
+            "sourceColumn": "book_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "title",
+            "dataType": "string",
+            "sourceColumn": "title",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "isbn13",
+            "dataType": "string",
+            "sourceColumn": "isbn13",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "num_pages",
+            "dataType": "int64",
+            "sourceColumn": "num_pages",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "publisher_id",
+            "dataType": "int64",
+            "sourceColumn": "publisher_id",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_book",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[dim_book].*   FROM [dbo].[dim_book] ",
+              "dataSource": "SqlServer DESKTOP-P15MACISQLEXPRESS01 gravity_books_dwh"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[dim_book].*   FROM [dbo].[dim_book] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "dim_book"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "dim_customer",
+        "columns": [
+          {
+            "name": "customer_id",
+            "dataType": "int64",
+            "sourceColumn": "customer_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "first_name",
+            "dataType": "string",
+            "sourceColumn": "first_name",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "last_name",
+            "dataType": "string",
+            "sourceColumn": "last_name",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "email",
+            "dataType": "string",
+            "sourceColumn": "email",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_customer",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[dim_customer].*   FROM [dbo].[dim_customer] ",
+              "dataSource": "SqlServer DESKTOP-P15MACISQLEXPRESS01 gravity_books_dwh"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[dim_customer].*   FROM [dbo].[dim_customer] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "dim_customer"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "dim_shipping",
+        "columns": [
+          {
+            "name": "shipping_method_id",
+            "dataType": "int64",
+            "sourceColumn": "shipping_method_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "method_name",
+            "dataType": "string",
+            "sourceColumn": "method_name",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dim_shipping",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[dim_shipping].*   FROM [dbo].[dim_shipping] ",
+              "dataSource": "SqlServer DESKTOP-P15MACISQLEXPRESS01 gravity_books_dwh"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[dim_shipping].*   FROM [dbo].[dim_shipping] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "dim_shipping"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DimDate",
+        "columns": [
+          {
+            "name": "DateSK",
+            "dataType": "int64",
+            "sourceColumn": "DateSK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date",
+            "formatString": "General Date",
+            "sourceProviderType": "DBTimeStamp"
+          },
+          {
+            "name": "Day",
+            "dataType": "string",
+            "sourceColumn": "Day",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DaySuffix",
+            "dataType": "string",
+            "sourceColumn": "DaySuffix",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DayOfWeek",
+            "dataType": "string",
+            "sourceColumn": "DayOfWeek",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DOWInMonth",
+            "dataType": "int64",
+            "sourceColumn": "DOWInMonth",
+            "sourceProviderType": "UnsignedTinyInt"
+          },
+          {
+            "name": "DayOfYear",
+            "dataType": "int64",
+            "sourceColumn": "DayOfYear",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "WeekOfYear",
+            "dataType": "int64",
+            "sourceColumn": "WeekOfYear",
+            "sourceProviderType": "UnsignedTinyInt"
+          },
+          {
+            "name": "WeekOfMonth",
+            "dataType": "int64",
+            "sourceColumn": "WeekOfMonth",
+            "sourceProviderType": "UnsignedTinyInt"
+          },
+          {
+            "name": "Month",
+            "dataType": "string",
+            "sourceColumn": "Month",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "MonthName",
+            "dataType": "string",
+            "sourceColumn": "MonthName",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "int64",
+            "sourceColumn": "Quarter",
+            "sourceProviderType": "UnsignedTinyInt"
+          },
+          {
+            "name": "QuarterName",
+            "dataType": "string",
+            "sourceColumn": "QuarterName",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Year",
+            "dataType": "string",
+            "sourceColumn": "Year",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "StandardDate",
+            "dataType": "string",
+            "sourceColumn": "StandardDate",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimDate",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DimDate].*   FROM [dbo].[DimDate] ",
+              "dataSource": "SqlServer DESKTOP-P15MACISQLEXPRESS01 gravity_books_dwh"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DimDate].*   FROM [dbo].[DimDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "fact_order",
+        "columns": [
+          {
+            "name": "order_SK",
+            "dataType": "int64",
+            "sourceColumn": "order_SK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "order_id_BK",
+            "dataType": "int64",
+            "sourceColumn": "order_id_BK",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "int64",
+            "sourceColumn": "customer_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "book_id",
+            "dataType": "int64",
+            "sourceColumn": "book_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "date_id",
+            "dataType": "int64",
+            "sourceColumn": "date_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "address_id",
+            "dataType": "int64",
+            "sourceColumn": "address_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "shipping_method_id",
+            "dataType": "int64",
+            "sourceColumn": "shipping_method_id",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "order_price",
+            "dataType": "double",
+            "sourceColumn": "order_price",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "shipping_cost",
+            "dataType": "double",
+            "sourceColumn": "shipping_cost",
+            "sourceProviderType": "Numeric"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "fact_order",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[fact_order].*   FROM [dbo].[fact_order] ",
+              "dataSource": "SqlServer DESKTOP-P15MACISQLEXPRESS01 gravity_books_dwh"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[fact_order].*   FROM [dbo].[fact_order] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "fact_order"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "1ffad984-80bf-48bf-86b4-fd70dffb2cc7",
+        "fromTable": "book_author",
+        "fromColumn": "author_id",
+        "toTable": "dim_author",
+        "toColumn": "author_id"
+      },
+      {
+        "name": "2f2f3dc7-1ea1-4971-94e6-ee512a5108d0",
+        "fromTable": "book_author",
+        "fromColumn": "book_id",
+        "toTable": "dim_book",
+        "toColumn": "book_id"
+      },
+      {
+        "name": "bf8aa1f2-24e2-4de5-95cb-cc22ed5868a7",
+        "fromTable": "dim_book",
+        "fromColumn": "publisher_id",
+        "toTable": "book_publisher",
+        "toColumn": "publisher_id"
+      },
+      {
+        "name": "6504adbe-fe15-4fe0-beac-6737c18850c8",
+        "fromTable": "fact_order",
+        "fromColumn": "address_id",
+        "toTable": "dim_address",
+        "toColumn": "address_id"
+      },
+      {
+        "name": "00ef84e4-c448-47c1-bbb2-f32538bcfdb8",
+        "fromTable": "fact_order",
+        "fromColumn": "book_id",
+        "toTable": "dim_book",
+        "toColumn": "book_id"
+      },
+      {
+        "name": "3a5f5a17-bb6b-433b-89f8-a6c1eb8e93f6",
+        "fromTable": "fact_order",
+        "fromColumn": "customer_id",
+        "toTable": "dim_customer",
+        "toColumn": "customer_id"
+      },
+      {
+        "name": "3b1859df-37d2-4670-80f9-0f83002b4098",
+        "fromTable": "fact_order",
+        "fromColumn": "shipping_method_id",
+        "toTable": "dim_shipping",
+        "toColumn": "shipping_method_id"
+      },
+      {
+        "name": "fca3993b-0e20-4f85-9647-3d44f08185a6",
+        "fromTable": "fact_order",
+        "fromColumn": "date_id",
+        "toTable": "DimDate",
+        "toColumn": "DateSK"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+C:\Users\ELnoor\source\repos\gravity_books_SSAS\gravity_books_SSAS\bin\Model.asdatabase
+C:\Users\ELnoor\source\repos\gravity_books_SSAS\gravity_books_SSAS\bin\Model.deploymenttargets
+C:\Users\ELnoor\source\repos\gravity_books_SSAS\gravity_books_SSAS\bin\Model.deploymentoptions
+C:\Users\ELnoor\source\repos\gravity_books_SSAS\gravity_books_SSAS\obj\Development\gravity_books_SSAS.smproj.AssemblyReference.cache
+C:\Users\ELnoor\source\repos\gravity_books_SSAS\gravity_books_SSAS\obj\Development\gravity_books_SSAS.smproj.CoreCompileInputs.cache
+C:\Users\ELnoor\source\repos\gravity_books_SSAS\gravity_books_SSAS\obj\Development\Model.asdatabase
+C:\Users\ELnoor\source\repos\gravity_books_SSAS\gravity_books_SSAS\obj\Development\Model.deploymentoptions
+C:\Users\ELnoor\source\repos\gravity_books_SSAS\gravity_books_SSAS\obj\Development\Model.deploymenttargets
